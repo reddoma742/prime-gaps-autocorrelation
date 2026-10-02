@@ -1,8 +1,9 @@
 cff-version: 1.2.0
 message: >-
   If you use any part of this repository, please cite the manuscript rather
-  than only the repository. Once the preprint appears on arXiv, replace the
-  text below with its arXiv identifier and add its DOI.
+  than only the repository. The manuscript is deposited on Zenodo under
+  10.5281/zenodo.23111512 (use 10.5281/zenodo.23111511 to cite all versions).
+  Once the preprint appears on arXiv, add its identifier alongside that DOI.
 
 
 type: software
@@ -12,6 +13,7 @@ title: >-
   up to K = 1024
 version: 1.0.0
 date-released: 2026-10-02
+doi: 10.5281/zenodo.23111512
 authors:
   - family-names: BERRAMDANE
     given-names: Reddouane

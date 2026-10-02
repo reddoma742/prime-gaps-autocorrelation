@@ -145,25 +145,36 @@ manuscript build.
 
 ## Citation
 
-The manuscript is being submitted to *Experimental Mathematics* and is
-intended for arXiv under `math.NT` (cross-listed `math.ST`).
+The manuscript has been deposited on Zenodo and is being submitted to
+*Experimental Mathematics*; an arXiv preprint under `math.NT` (cross-listed
+`math.ST`) is intended but blocked on an endorsement.
 
 > BERRAMDANE Reddouane. *Persistent Negative Lag-One Dependence in Locally
 > Detrended Prime-Gap Windows up to N = 10^9, with Absence of Significant
-> Positive Autocorrelation up to K = 1024.*
+> Positive Autocorrelation up to K = 1024.* Zenodo, 2 October 2026.
+> <https://doi.org/10.5281/zenodo.23111512>
+
+That DOI is `10.5281/zenodo.23111512` (version v1). Citing *all* versions
+means using the concept DOI `10.5281/zenodo.23111511`. The record holds the
+article as `prime_gaps_paper.pdf` and the LaTeX sources as
+`prime-gaps-autocorrelation-latex-source.zip`, both under
+CC BY-NC-SA 4.0; the CSV data files stay here in the repository, and the
+Zenodo record points back at this repository through a
+`isDescribedBy` related identifier.
 
 **Cite the paper, not just this repository.** `CITATION.cff` in the root
 holds the same information in machine-readable form, and GitHub renders it
-as “Cite this repository”. Please cite the arXiv identifier once assigned;
-it is left as a placeholder (`\ArxivID`) in `paper/manuscript.tex` and
-`paper/cover_letter.tex` until then, and the placeholder is to be replaced
-in `CITATION.cff` at the same time.
+as “Cite this repository”. It carries the Zenodo DOI above. Please add the
+arXiv identifier once assigned; it is left as a placeholder (`\ArxivID`) in
+`paper/manuscript.tex` and `paper/cover_letter.tex` until then, and the
+placeholder is to be replaced in `CITATION.cff` at the same time.
 
 The `LICENSE` file states in what form attribution has to be given, and
 is explicit about what copyright does **not** cover here: it protects the
 code, the data, the figures and the text, not the ideas or the numerical
-results. Priority for this work rests on the arXiv posting date and the
-journal submission date.
+results. Priority for this work rests, in order of date, on the Zenodo
+posting date (2 October 2026), the arXiv posting date once it exists, and
+the journal submission date.
 
 ## AI disclosure
 

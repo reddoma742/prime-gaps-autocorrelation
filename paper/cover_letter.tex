@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+
+% Placeholder. Replace XXX.XXXXX with the real identifier once the
+% preprint is on arXiv.  The same macro is declared in manuscript.tex.
+\newcommand{\ArxivID}{arXiv:XXXX.XXXXX}
+
+\begin{document}
+
+\begin{center}
+{\large \textbf{Submission to \emph{Experimental Mathematics}}}
+\end{center}
+
+\bigskip
+\noindent Dear Editor,
+
+\medskip
+\noindent We submit for your consideration the manuscript entitled
+``Persistent Negative Lag-One Dependence in Locally Detrended
+Prime-Gap Windows up to $N = 10^9$, with Absence of Significant
+Positive Autocorrelation up to $K = 1024$'' by BERRAMDANE Reddouane.
+
+\medskip
+\noindent \textbf{Summary of the contribution.} We analyse the
+autocorrelation of consecutive prime gaps using an exact segmented
+sieve up to $N = 10^9$ (50{,}847{,}532 gaps). The lag-one
+autocorrelation of the locally detrended gap sequence is negative in
+all ten logarithmic windows spanning $[10^4, 10^9)$, with moving-block
+bootstrap intervals excluding zero, and its magnitude follows a power
+law in $\log p$ with exponent $c = 1.28 \pm 0.05$. Extending the
+analysis to $K = 1024$ lags on the globally detrended sequence, we find
+no significant positive autocorrelation at any individual lag. We also
+report a direct test of the Lemke--Oliver--Soundararajan conjecture
+mod~3, and an inclusion--exclusion extension of the naive
+Hardy--Littlewood pair-density heuristic that reduces the mean absolute
+error on observed pair ratios from $3.55\%$ to $0.37\%$ with no fitted
+constants.
+
+\medskip
+\noindent \textbf{Negative autocorrelation and prime gaps.} Negative
+correlations between consecutive gaps are classical, going back to
+Brent (1973), and the existence of long gaps is well established
+(Ford, Green, Konyagin, Maynard and Tao, 2018). The literature treats
+these mostly as separate phenomena. Our contribution is to measure the
+correlation itself, with a windowed and detrended estimator, to
+$10^9$, and to quantify its decay exponent --- with an explicit
+synthetic control (Appendix C) showing the negative sign is not an
+artifact of the detrending procedure.
+
+\medskip
+\noindent \textbf{Where the methodology may interest the readership.}
+Three features of the analysis are transferable beyond number theory.
+First, the raw global correlogram of prime gaps exhibits a strong
+positive plateau that is purely an artifact of non-stationarity; we
+demonstrate this with a synthetic control (Appendix B). Second, we
+show that the common argument ``the white-noise standard error is
+conservative here'' is not generally sound, and give the correct
+Bartlett factor. Third, the inclusion--exclusion pair-density model
+transfers directly to any pairwise counting problem with a singular
+series.
+
+\medskip
+\noindent \textbf{Statistical rigor.} We are explicit about what is
+\emph{not} claimed. In particular, the estimate of $c$ is sensitive to
+the choice of window set, and we report this sensitivity rather than
+suppressing it: the exclusion of $c = 1$ ranges from $2.6\sigma$ to
+$5.6\sigma$ depending on the fit, whereas the exclusion of $c = 2$
+ranges from $3.7\sigma$ to $14.4\sigma$ across window-set choices and
+holds at $6.6\sigma$ on the bootstrap scale. We also decline to treat a
+telescoping
+identity involving the Chebyshev function as an independent
+measurement; it is an internal consistency check of the sieve
+pipeline only.
+
+\medskip
+\noindent \textbf{Reproducibility.} All code, CSV outputs, and a
+README are released. The sieve, the windowed bootstrap, the
+permutation test, and the correlogram are all seeded and deterministic.
+Total computational cost is approximately 22~hours on a single
+four-thread workstation with no GPU.
+
+\medskip
+\noindent An arXiv preprint is available at \texttt{\ArxivID}.
+
+\medskip
+\noindent \textbf{Disclosure.} AI-assisted tools (Claude, Anthropic;
+Kimi, Moonshot AI) were used for code verification, methodological
+review, and drafting assistance, and are disclosed in the manuscript.
+The author retains full responsibility for the content, analysis, and
+conclusions. Neither AI system is listed as an author.
+
+\medskip
+\noindent The manuscript is original, is not under consideration
+elsewhere, and has not been published previously. All authors approve
+the submission. The author has no competing interests to declare. This
+work received no external funding.
+
+\medskip
+\noindent Thank you for your consideration. I look forward to your
+response.
+
+\bigskip
+\noindent Sincerely,
+
+
+\vspace{1.5em}
+\noindent BERRAMDANE Reddouane\\
+Independent Researcher\\
+\texttt{reddoma@gmail.com}
+
+\end{document}

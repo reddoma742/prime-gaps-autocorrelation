@@ -1,0 +1,11 @@
+N,1000000000
+n_primes,50847534
+n_gaps,50847532
+P,999999937
+sum_theta,32617.4128614360
+delta_theory,0.0006414748
+delta_obs,0.0006092163
+difference,0.0000322585
+P_minus_thetaP,30958.422043
+psiN_minus_N,1595.990818
+expected_order,2237.2

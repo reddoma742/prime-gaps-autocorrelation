@@ -1,0 +1,107 @@
+==========================================================================================
+  PRIME WHEELS — v10 SUPPLEMENT v2 (CORRECTED)
+  N = 1000000000
+  K_GLOBAL_MAX = 1024
+  [C1] task_global_correlogram uses delta_n = g_n - log(p_n)
+  [C2] task_consistency uses P-3
+  Purpose: [1] K=1024 correlogram on delta, [2] LO-S stay,
+           [3] rho_k/rho_1, [4] consistency
+  Does NOT re-run bootstrap or permutation (v9.1 provides those).
+==========================================================================================
+
+[Phase 0] Sieving...
+  Primes: 50847534
+  Gaps:   50847532
+  Time:   107.00 s
+
+[TASK G1] Global correlogram on delta_n = g_n - log(p_n)
+  Direct O(n*K) loop, no FFT
+  Global mean subtraction only (no windowed regression)
+  |delta| = 50847532 (should equal all_gaps)
+  (all_gaps size = 50847532)
+  Elapsed: 538.83 s
+
+  --- delta_n = g_n - log(p_n) ---
+  n = 50847532
+    n_positive: 255 / 1024
+    first_positive_k: 160
+    max_positive: +0.00038565 at k = 688
+    min_rho: -0.03151595
+    max_rho: 0.00038565
+    SE (1/sqrt(n)) = 0.00014024
+    Bonferroni threshold (z=4.0612) = 0.00056953
+    max_rho/threshold = 0.6771
+    tail_mean (k ∈ [160, 1024]) = -0.00007030
+    tail_n = 865
+
+  Saved: correlogram_k1024_v10_v2.csv
+
+[TASK G1b] Global correlogram on raw gaps g_n (comparison)
+  Elapsed: 541.04 s
+
+  --- raw gaps g_n ---
+  n = 50847532
+    n_positive: 1016 / 1024
+    first_positive_k: 9
+    max_positive: +0.00424309 at k = 688
+    min_rho: -0.02753178
+    max_rho: 0.00424309
+    SE (1/sqrt(n)) = 0.00014024
+    Bonferroni threshold (z=4.0612) = 0.00056953
+    max_rho/threshold = 7.4501
+    tail_mean (k ∈ [160, 1024]) = 0.00378936
+    tail_n = 865
+
+  Saved: correlogram_k1024_raw_v10_v2.csv
+
+[TASK G2] LO-S stay probabilities mod 3
+  Class 1 (p_n ≡ 1 mod 3):
+    n_pairs  = 25422712
+    n_stay   = 11315464
+    P(stay|1) = 0.44509272
+    dev      = -0.05490728
+    z (H0: p=1/2) = -553.69534855
+  Class 2 (p_n ≡ 2 mod 3):
+    n_pairs  = 25424819
+    n_stay   = 11317570
+    P(stay|2) = 0.44513867
+    dev      = -0.05486133
+    z (H0: p=1/2) = -553.25493724
+  Saved: los_stay_v10.csv
+  Saved: los_joint_v10.csv
+  Consistency: total pairs = 50847531 (from joint table: 50847531)  PASS
+
+[TASK G3] Ratio rho_k / rho_1 per window (k=2..20)
+                      Window |          rho_1 | rho_k / rho_1 for k=2..8
+                 [10000,30000) |      -0.094896 |   0.488   0.266   0.289   0.155   0.342   0.084  -0.251 
+                [30000,100000) |      -0.086882 |   0.473   0.090   0.157   0.443  -0.128   0.120   0.239 
+               [100000,300000) |      -0.055793 |   0.528   0.522   0.143   0.324   0.310  -0.062   0.203 
+              [300000,1000000) |      -0.051559 |   0.391   0.217   0.327   0.224   0.153   0.123   0.150 
+             [1000000,3000000) |      -0.051881 |   0.486   0.234   0.166   0.174   0.101   0.175   0.202 
+            [3000000,10000000) |      -0.043332 |   0.458   0.406   0.294   0.188   0.202   0.100   0.160 
+           [10000000,30000000) |      -0.037931 |   0.553   0.353   0.275   0.156   0.206   0.145   0.168 
+          [30000000,100000000) |      -0.035782 |   0.475   0.335   0.264   0.205   0.181   0.178   0.113 
+         [100000000,300000000) |      -0.032766 |   0.501   0.342   0.252   0.204   0.185   0.149   0.150 
+        [300000000,1000000000) |      -0.030536 |   0.495   0.339   0.261   0.215   0.188   0.148   0.141 
+  Saved: rho_over_k_v10.csv
+
+[TASK G4] Consistency checks
+  primes = 50847534 (expected 50847534)  PASS
+  gaps = 50847532 (expected 50847532)  PASS
+  sum(gaps) = 999999934 (expected P-3 = 999999934)  PASS  [note: all_gaps excludes the first gap 2→3=1]
+
+==========================================================================================
+[FINAL] Summary
+  N = 1000000000
+  primes = 50847534
+  gaps = 50847532
+  Total time: 1209.77 s
+
+  Files saved:
+    - correlogram_k1024_v10_v2.csv     (delta-based, main)
+    - correlogram_k1024_raw_v10_v2.csv (raw gaps, comparison)
+    - los_stay_v10.csv
+    - los_joint_v10.csv
+    - rho_over_k_v10.csv
+    - results_v10_supplement_v2.txt
+==========================================================================================

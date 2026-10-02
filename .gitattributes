@@ -1,0 +1,15 @@
+# Force LF in the working tree as well as in the repository, on every
+# platform.  checksums/SHA256SUMS is computed over data/ as it is checked
+# out, so a CRLF checkout would invalidate it.  build_all.sh and the
+# Python scripts also need LF to run under bash and python3.
+* text=auto eol=lf
+
+*.sh  text eol=lf
+*.py  text eol=lf
+*.tex text eol=lf
+*.bib text eol=lf
+*.txt text eol=lf
+*.md  text eol=lf
+*.csv text eol=lf
+
+*.pdf binary

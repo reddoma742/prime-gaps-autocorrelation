@@ -1,0 +1,21 @@
+# LaTeX auxiliaries
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.toc
+*.spl
+*.synctex.gz
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Build
+build/
+
+# System
+.DS_Store
+Thumbs.db

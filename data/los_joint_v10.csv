@@ -1,0 +1,7 @@
+# joint table T[a][b] = # of pairs (p_n mod 3 = a, p_{n+1} mod 3 = b)
+# for a, b in {1, 2}
+a,b,count
+1,1,11315464
+1,2,14107248
+2,1,14107249
+2,2,11317570

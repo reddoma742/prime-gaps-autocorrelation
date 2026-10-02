@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+message: >-
+  If you use any part of this repository, please cite the manuscript rather
+  than only the repository. Once the preprint appears on arXiv, replace the
+  text below with its arXiv identifier and add its DOI.
+
+
+type: software
+title: >-
+  Persistent Negative Lag-One Dependence in Locally Detrended Prime-Gap
+  Windows up to N = 10^9, with Absence of Significant Positive Autocorrelation
+  up to K = 1024
+version: 1.0.0
+date-released: 2026-10-02
+authors:
+  - family-names: BERRAMDANE
+    given-names: Reddouane
+    alias: reddoma742
+license: CC-BY-NC-SA-4.0
+license-url: https://github.com/reddoma742/prime-gaps-autocorrelation/blob/main/LICENSE
+repository-code: https://github.com/reddoma742/prime-gaps-autocorrelation
+url: https://github.com/reddoma742/prime-gaps-autocorrelation
+keywords:
+  - prime gaps
+  - autocorrelation
+  - Hardy-Littlewood pair density
+  - Lemke-Oliver-Soundararajan conjecture
+  - Chebyshev function
+  - number theory
+  - 11N05
+  - 62M10
+  - 11N56
+abstract: >-
+  Analysis of the gap sequence g_n = p_{n+1} - p_n of consecutive primes with an
+  exact segmented sieve up to N = 10^9, which yields 50847532 even gaps. Within
+  locally detrended logarithmic windows the lag-one autocorrelation rho_1 is
+  negative in all ten windows spanning [10^4, 10^9), and |rho_1| decays like
+  (log p)^-c with a weighted fit c = 1.28 +/- 0.05. The quadratic exponent c = 2
+  is excluded between 3.7 and 14.4 standard errors, and at 6.6 standard errors on
+  the bootstrap scale. Out to lag K = 1024 no individual lag shows significant
+  positive autocorrelation: 255 of 1024 lags are positive, the largest being
+  +3.86e-4 against a Bonferroni threshold of 5.70e-4. Without detrending the
+  same correlogram shows 1016 positive lags with a maximum of +4.24e-3, which
+  identifies the naive signal as a non-stationarity artifact. An
+  inclusion-exclusion extension of the Hardy-Littlewood pair-density heuristic
+  reproduces the observed pair ratios to 0.37 percent mean absolute error with
+  no fitted constants. This repository holds the C++ and Python pipelines, the
+  16 CSV data files with their SHA-256 checksums, the run logs, and the LaTeX
+  sources of the manuscript.

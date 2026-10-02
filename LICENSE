@@ -26,6 +26,25 @@ Concretely: a commercial firm may not run this analysis in order to
 trade on the result, and may not relicense a modified version of the
 code under terms that permit it.
 
+How to give attribution.  A generic acknowledgement is not enough to
+comply with this licence.  Anyone reusing this material should cite:
+
+  BERRAMDANE Reddouane, "Persistent Negative Lag-One Dependence in
+  Locally Detrended Prime-Gap Windows up to N = 10^9, with Absence of
+  Significant Positive Autocorrelation up to K = 1024", together with the
+  arXiv identifier once one is assigned, and link back to
+  https://github.com/reddoma742/prime-gaps-autocorrelation
+
+The machine-readable form of that citation is CITATION.cff in the root
+of the repository; GitHub renders it as "Cite this repository".
+
+What this licence does not do.  Copyright protects the code, the data,
+the figures and the written text.  It does not protect the ideas or the
+numerical results: another author may work on the same question, reach
+the same values independently, and write their own paper, and no licence
+here prevents that.  What establishes priority for this work is the
+arXiv posting date and the journal submission date, not this file.
+
 Note on software.  Creative Commons does not recommend its licences for
 software.  CC BY-NC-SA 4.0 is used here because the intent is to forbid
 commercial reuse of the analysis code as well as of the data, and there

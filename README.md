@@ -48,6 +48,7 @@ Limitations and Reproducibility in the manuscript.
 README.md                        this file
 LICENSE                         CC BY-NC-SA 4.0, for everything in this repository
                                 (code, LaTeX sources, data, logs, figures)
+CITATION.cff                    machine-readable citation, rendered by GitHub
 .gitignore
 build_all.sh                     reproduce everything from scratch
 requirements.txt                 Python dependencies
@@ -151,9 +152,18 @@ intended for arXiv under `math.NT` (cross-listed `math.ST`).
 > Detrended Prime-Gap Windows up to N = 10^9, with Absence of Significant
 > Positive Autocorrelation up to K = 1024.*
 
-Please cite the arXiv identifier once assigned; it is left as a
-placeholder (`\ArxivID`) in `paper/manuscript.tex` and
-`paper/cover_letter.tex` until then.
+**Cite the paper, not just this repository.** `CITATION.cff` in the root
+holds the same information in machine-readable form, and GitHub renders it
+as “Cite this repository”. Please cite the arXiv identifier once assigned;
+it is left as a placeholder (`\ArxivID`) in `paper/manuscript.tex` and
+`paper/cover_letter.tex` until then, and the placeholder is to be replaced
+in `CITATION.cff` at the same time.
+
+The `LICENSE` file states in what form attribution has to be given, and
+is explicit about what copyright does **not** cover here: it protects the
+code, the data, the figures and the text, not the ideas or the numerical
+results. Priority for this work rests on the arXiv posting date and the
+journal submission date.
 
 ## AI disclosure
 

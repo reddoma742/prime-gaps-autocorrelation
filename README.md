@@ -46,8 +46,8 @@ Limitations and Reproducibility in the manuscript.
 
 ```
 README.md                        this file
-LICENSE.txt                      MIT, for src/ and paper/
-LICENSE-DATA.txt                 CC BY 4.0, for data/, logs/ and paper/figures/
+LICENSE                         CC BY-NC-SA 4.0, for everything in this repository
+                                (code, LaTeX sources, data, logs, figures)
 .gitignore
 build_all.sh                     reproduce everything from scratch
 requirements.txt                 Python dependencies
@@ -165,5 +165,23 @@ conclusions. No AI system is listed as an author.
 
 ## Licence
 
-Code and LaTeX sources under the MIT licence (`LICENSE.txt`); data, logs
-and figures under CC BY 4.0 (`LICENSE-DATA.txt`).
+Everything in this repository — the code in `src/`, the LaTeX sources and
+figures in `paper/`, the CSV files in `data/`, the logs in `logs/` and the
+checksum list — is under a single licence:
+
+**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)).**
+Copyright (c) 2026 BERRAMDANE Reddouane. The full legal code is in
+[`LICENSE`](LICENSE).
+
+You may share and adapt all of it, including the data, provided that you
+
+- give appropriate credit and link to the licence,
+- **do not use it for commercial purposes** — in particular, a commercial
+  firm may not run this analysis in order to trade on the result, and
+- distribute any adaptation under the same licence.
+
+Creative Commons does not recommend its licences for software. This one is
+used because the intent is to forbid commercial reuse of the analysis code
+as well as of the data, and no widely used OSI-approved licence expresses
+that constraint.

@@ -176,6 +176,49 @@ results. Priority for this work rests, in order of date, on the Zenodo
 posting date (2 October 2026), the arXiv posting date once it exists, and
 the journal submission date.
 
+## Erratum on the published PDF
+
+The preprint deposited on Zenodo on 2 October 2026
+([10.5281/zenodo.23111512](https://doi.org/10.5281/zenodo.23111512)) carries a
+bibliography with two errors, found on 3 October 2026 by checking all 23
+entries of `paper/refs.bib` against Crossref, OpenAlex, zbMATH and the
+publishers' own APIs:
+
+- **Brent** was dated 1973. The volume, the issue number and the pages were
+  correct; only the year was wrong. The correct record is *Mathematics of
+  Computation* **28**(125), 315-324, **1974**,
+  [10.1090/S0025-5718-1974-0330017-X](https://doi.org/10.1090/S0025-5718-1974-0330017-X).
+  The `0330017` in that DOI is the AMS submission number, and it encodes 1974.
+- **Bartlett 1946** had a garbled, non-existent title. The correct one is *On
+  the theoretical specification and sampling properties of autocorrelated
+  time-series*, JRSS-B **8**(1), 27-41,
+  [10.2307/2983611](https://doi.org/10.2307/2983611).
+
+Three further defects were corrected at the same time: the URL of Oliveira e
+Silva's tables of $\pi(x)$ had gone dead (`http://www.ieeta.pt/~tos/primes.html`
+now returns 404; the tables live at `https://sweet.ua.pt/tos/primes.html`, which
+is the address OEIS itself cites); the OEIS entry used `$\le 10^n$` instead of
+the official sequence name *Number of primes < 10^n*; and four titles were
+losing their capital letters to the BibTeX style (`Cramér`, `Partitio
+Numerorum`, `A006880`, `The On-Line Encyclopedia of Integer Sequences`).
+
+The manuscript body is untouched by this erratum. Not one sentence, number or
+table changed: `manuscript.tex` differs from the deposited version only by the
+two `\cite{Brent1973}` keys, and the document still compiles to 21 pages with no
+error and no undefined reference.
+
+**The correction is not in the deposited PDF.** A Zenodo preprint record has
+frozen files, and that PDF was produced on Overleaf, so it cannot be patched
+locally. A version 2 is therefore required, under the same concept DOI
+`10.5281/zenodo.23111511`. It has not been uploaded: this is a public and
+irreversible act, so it waits for an explicit decision, and it needs a PDF
+recompiled on Overleaf from these corrected sources first.
+
+A byte-exact copy of the deposited PDF was kept before any change, along with
+its MD5, which still matches the one Zenodo publishes:
+`f7b390a57bdd75a114811e04b8213062`.
+
+
 ## AI disclosure
 
 AI-assisted tools (Claude, Anthropic; Kimi, Moonshot AI) were used for code

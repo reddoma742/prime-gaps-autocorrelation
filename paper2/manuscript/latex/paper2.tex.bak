@@ -1,0 +1,46 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+\geometry{margin=1in}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black
+}
+
+\title{Windowed Phase Conditioning and Lag-One Covariance of Consecutive Prime Gaps}
+\author{Reddouane Berramdane\\ \small Independent researcher}
+\date{6 October 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/00_abstract.tex}
+\end{abstract}
+
+\input{sections/01_introduction.tex}
+\input{sections/02_data_and_windowing.tex}
+\input{sections/03_sieve_phase_decomposition.tex}
+\input{sections/04_covariance_decomposition.tex}
+\input{sections/05_scale_validation.tex}
+\input{sections/06_variance_structure.tex}
+\input{sections/07_theory.tex}
+\input{sections/08_limitations.tex}
+\input{sections/09_relation_to_murray.tex}
+
+\input{sections/10_references.tex}
+
+\end{document}

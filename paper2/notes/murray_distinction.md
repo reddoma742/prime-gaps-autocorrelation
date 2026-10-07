@@ -1,0 +1,3 @@
+# Distinction from Murray
+
+Murray studies recurrence statistics of consecutive-prime residue classes under CRT-aligned primorial lifts, using finite-state transition models and projections back to a coarse modulus. The present work studies a different observable: the lag-one covariance of numerical prime-gap sizes after local detrending, conditioning on the opening-prime residue modulo a primorial. We measure how the covariance and its phase, cross, and within-phase components change with the conditioning modulus, rather than reconstructing mod-30 recurrence ratios. The two approaches are complementary: both resolve hidden divisibility coordinates, but they address different observables and make different statistical claims.

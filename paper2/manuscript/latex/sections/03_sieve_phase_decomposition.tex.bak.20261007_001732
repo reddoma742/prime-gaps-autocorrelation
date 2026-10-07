@@ -1,0 +1,76 @@
+\section{Sieve-phase decomposition}
+
+\subsection{Setup}
+
+Let $p_n$ be the $n$-th prime and let $g_n = p_{n+1}-p_n$. For a primorial modulus
+\[
+M \in \{6,\,30,\,210,\,2310,\,30030,\,510510,\,9699690\},
+\]
+define the phase class of the $n$-th gap by
+\[
+r_n = p_n \bmod M.
+\]
+Each $M$ is squarefree and composed of the first $k$ primes, so the set of admissible residues $r_n$ is exactly $(\mathbb{Z}/M\mathbb{Z})^\times$, of size $\varphi(M)$.
+
+We work with the locally detrended gap
+\[
+e_n = g_n - (\alpha + \beta \log p_n),
+\]
+where $\alpha$ and $\beta$ are the ordinary-least-squares coefficients of $g_n$ on $\log p_n$ over the whole window. For the $10^{10}$ window we obtain
+\[
+\alpha = 0.002492,\qquad \beta = 0.999903.
+\]
+
+\subsection{Phase-conditional means}
+
+For each admissible residue $r$ define the phase-conditional mean
+\[
+\mu(r) = \mathbb{E}\!\left[e_n \mid r_n = r\right],
+\]
+estimated by the sample mean of $e_n$ over the gaps with $r_n = r$. The phase-conditional mean captures the systematic offset of the detrended gap as a function of the opening-prime residue.
+
+\subsection{Between-phase and within-phase variance}
+
+By the law of total variance,
+\[
+\operatorname{Var}(e) = \operatorname{Var}(\mu(r_n)) + \mathbb{E}\!\left[\operatorname{Var}(e_n \mid r_n)\right].
+\]
+The first term is the between-phase variance; the second is the within-phase variance. In the CSV these are \texttt{var\_between} and \texttt{var\_within}.
+
+For the $10^{10}$ window, $\operatorname{Var}(e) = 438.670412$ and the split is:
+
+\begin{table}[ht]
+\centering
+\caption{Variance split by modulus.}
+\label{tab:variance-split}
+\begin{tabular}{rrrrr}
+\toprule
+$M$ & $\varphi(M)$ & var\_between & var\_within & var\_between / var\_g \\
+\midrule
+6 & 2 & 0.157635 & 438.512777 & 0.00036 \\
+30 & 8 & 1.283949 & 437.386463 & 0.00293 \\
+210 & 48 & 3.879416 & 434.790995 & 0.00884 \\
+2310 & 480 & 6.750875 & 431.919537 & 0.01539 \\
+30030 & 5760 & 9.793090 & 428.877321 & 0.02232 \\
+510510 & 92160 & 12.722069 & 425.948343 & 0.02900 \\
+9699690 & 1658880 & 16.402117 & 422.268294 & 0.03739 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two observations:
+
+\begin{enumerate}
+\item The split closes exactly: \texttt{var\_between} $+$ \texttt{var\_within} $= 438.670412$ for every $M$.
+\item \texttt{var\_between} grows monotonically with $M$, from $0.158$ at $M=6$ to $16.402$ at $M=9699690$. At the largest modulus, phase conditioning accounts for approximately $3.74\%$ of the total variance of the detrended gap.
+\end{enumerate}
+
+The within-phase variance declines correspondingly. This is a purely arithmetic effect: refining the modulus resolves more of the residue-class structure of the opening prime, and part of the gap-size variance is explained by that structure.
+
+\subsection{Class population}
+
+All classes are non-empty. The minimum class count across the seven moduli is reported in Table~\ref{tab:class-sizes} (Section~2.3). The sparsest case is $M=9699690$, where the smallest class contains $433$ gaps. This is sufficient for the covariance decomposition and for the block bootstrap reported in Section~4.5.
+
+\subsection{What this section does not claim}
+
+The decomposition is an algebraic identity. It partitions the variance into a between-phase and a within-phase term; it does not attribute a causal mechanism to either. The phase-conditional mean $\mu(r)$ is a computed quantity, not a modelled one, and no asymptotic claim is made about its behaviour as $M\to\infty$.

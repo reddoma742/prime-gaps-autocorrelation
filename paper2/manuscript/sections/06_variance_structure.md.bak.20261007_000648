@@ -1,0 +1,42 @@
+# 6. Variance structure
+
+## 6.1 Setup
+
+Let \(e_n\) denote the detrended gap and write the conditional decomposition
+\[
+e_n = \mu_n + u_n,\qquad \mathbb{E}(u_n \mid p_n \bmod M) = 0,
+\]
+where \(\mu_n = \mathbb{E}(e_n \mid p_n \bmod M)\) is the phase-conditional mean and \(u_n\) is the within-phase residual.
+
+By the law of total variance,
+\[
+\operatorname{Var}(e) = \operatorname{Var}(\mu_n) + \mathbb{E}\!\left[\operatorname{Var}(u_n \mid r)\right].
+\]
+The variance split `var_between` + `var_within` = `var_g` is reported in Table 2 (Section 3.3). This section interprets that split and records its relation to the covariance decomposition of Section 4.
+
+## 6.2 Monotone growth of the between-phase variance
+
+The between-phase variance `var_between` grows monotonically with \(M\) across the tested ladder, from \(0.158\) at \(M=6\) to \(16.402\) at \(M=9699690\). At the largest modulus this accounts for approximately \(3.74\%\) of the total detrended variance \(\operatorname{Var}(g) = 438.670412\). The within-phase variance declines correspondingly.
+
+The growth is a purely arithmetic effect of the conditioning. As \(M\) increases, more of the residue-class structure of the opening prime is resolved, and a larger fraction of the gap-size variance is attributed to phase. No claim is made that this fraction converges to a limit as \(M\to\infty\); the seven moduli form a finite ladder.
+
+## 6.3 Relation to the covariance decomposition
+
+Section 4 decomposes the lag-one covariance as
+\[
+\operatorname{Cov}(e_n,\,e_{n+1}) = A + X + Y + D,
+\]
+where \(A\) is the phase component, \(X\) and \(Y\) are cross terms, and \(D\) is the residual term.
+
+Both decompositions arise from the same phase conditioning. The between-phase variance `var_between` and the phase covariance component \(A\) capture the contribution of phase structure to two different second-order statistics:
+
+- `var_between` is a one-point statistic: it measures the dispersion of the phase-conditional means \(\mu(r)\) around the global mean.
+- \(A = \mathbb{E}[\mu(r_n)\mu(r_{n+1})]\) is a two-point statistic: it measures the lag-one autocovariance of the phase-conditional means.
+
+The two quantities are not equivalent. A phase structure with large one-point dispersion need not produce a large lag-one autocovariance, and vice versa. The observed data show that both grow with \(M\), but at different rates and with different signs in the small-\(M\) regime.
+
+## 6.4 What this section does not claim
+
+The variance split is an algebraic identity. It partitions the detrended variance into a between-phase and a within-phase term; it does not attribute a causal mechanism to either. The phase-conditional mean \(\mu(r)\) is a computed quantity, not a modelled one.
+
+No claim is made that the residual lag-one correlation \(\rho_{\text{resid}}\) converges to zero, nor that the between-phase variance converges to a finite limit, nor that the phase decomposition explains all of the observed dependence. The empirical claims are those stated in Sections 4 and 5: the decomposition is exact, the residual remains negative at all seven tested moduli, and the pre-registered ranges are reproduced at \(10^{10}\).

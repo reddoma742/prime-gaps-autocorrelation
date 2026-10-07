@@ -1,0 +1,69 @@
+# 6. Variance and covariance structure
+
+Let \(e_n\) denote the detrended gap and write the conditional decomposition
+\[
+e_n = \mu_n + u_n,\qquad \mathbb{E}(u_n \mid p_n \bmod M) = 0,
+\]
+where \(\mu_n = \mathbb{E}(e_n \mid p_n \bmod M)\) is the phase-conditional mean and \(u_n\) is the within-phase residual.
+
+Taking unconditional variances,
+\[
+\operatorname{Var}(e) = \operatorname{Var}(\mu_n) + \mathbb{E}\!\left[\operatorname{Var}(u_n \mid r)\right].
+\]
+In the notation of the CSV, \(\operatorname{Var}(\mu_n)\) is `var_between` and \(\mathbb{E}[\operatorname{Var}(u_n \mid r)]\) is `var_within`. The two columns sum to `var_g` exactly for every \(M\):
+
+| \(M\) | var_between | var_within | var_between + var_within | var_g |
+|---:|---:|---:|---:|---:|
+| 6 | 0.157635 | 438.512777 | 438.670412 | 438.670412 |
+| 30 | 1.283949 | 437.386463 | 438.670412 | 438.670412 |
+| 210 | 3.879416 | 434.790995 | 438.670412 | 438.670412 |
+| 2310 | 6.750875 | 431.919537 | 438.670412 | 438.670412 |
+| 30030 | 9.793090 | 428.877321 | 438.670412 | 438.670412 |
+| 510510 | 12.722069 | 425.948343 | 438.670412 | 438.670412 |
+| 9699690 | 16.402117 | 422.268294 | 438.670412 | 438.670412 |
+
+The between-phase variance grows monotonically with \(M\), from \(0.158\) at \(M=6\) to \(16.402\) at \(M=9699690\), corresponding to approximately \(3.7\%\) of \(\operatorname{Var}(g)\) at the largest modulus. The within-phase variance declines correspondingly.
+
+For the lag-one covariance, the same conditioning yields the algebraic identity
+\[
+\operatorname{Cov}(e_n,\,e_{n+1}) = A + X + Y + D,
+\]
+where \(A\) is the phase component, \(X\) and \(Y\) are cross terms between the phase mean and the residual, and \(D\) is the residual–residual term. This is an **accounting decomposition**, not a causal claim: all four terms are computed from the same data, and the identity is exact by construction.
+
+The observed components, from `phase_decomposition_v2.csv`:
+
+| \(M\) | \(A\) | \(X\) | \(Y\) | \(D\) | \(A+X+Y+D\) | Cov |
+|---:|---:|---:|---:|---:|---:|---:|
+| 6 | −0.014798 | −0.011110 | −0.142602 | −10.832660 | −11.001171 | −11.001171 |
+| 30 | −0.086958 | −0.118493 | −1.170132 | −9.625587 | −11.001171 | −11.001171 |
+| 210 | +0.138938 | −0.055117 | −3.084120 | −8.000871 | −11.001171 | −11.001171 |
+| 2310 | +0.670972 | −0.035007 | −4.876237 | −6.760899 | −11.001171 | −11.001171 |
+| 30030 | +1.369692 | −0.029422 | −6.575378 | −5.766063 | −11.001171 | −11.001171 |
+| 510510 | +2.127980 | −0.028428 | −8.085351 | −5.015372 | −11.001171 | −11.001171 |
+| 9699690 | +2.898121 | −0.031791 | −9.515775 | −4.351726 | −11.001171 | −11.001171 |
+
+Three qualitative features stand out.
+
+1. The phase component \(A\) increases monotonically with \(M\), from near zero at \(M=6\) to \(2.898\) at \(M=9699690\). It changes sign between \(M=30\) and \(M=210\).
+2. The dominant term \(D\) decreases in magnitude as \(M\) grows, from \(-10.833\) at \(M=6\) to \(-4.352\) at \(M=9699690\).
+3. The residual correlation
+\[
+\rho_{\text{resid}}(M) = \frac{D(M)}{\text{normalization}(M)}
+\]
+remains negative for every \(M\), declining in magnitude from \(-0.024703\) at \(M=6\) to \(-0.010306\) at \(M=9699690\).
+
+The block-bootstrap 95% confidence intervals for \(\rho_{\text{resid}}\) are reported in Table 5.1. In every case the interval excludes zero, and the point estimate lies inside the interval:
+
+| \(M\) | \(\rho_{\text{resid}}\) | 95% bootstrap CI |
+|---:|---:|---:|
+| 6 | −0.024703 | [−0.024881, −0.024552] |
+| 30 | −0.022007 | [−0.022137, −0.021878] |
+| 210 | −0.018402 | [−0.018518, −0.018291] |
+| 2310 | −0.015653 | [−0.015744, −0.015549] |
+| 30030 | −0.013445 | [−0.013538, −0.013350] |
+| 510510 | −0.011775 | [−0.011863, −0.011689] |
+| 9699690 | −0.010306 | [−0.010387, −0.010230] |
+
+We do **not** claim that the phase component \(A\) "causes" the observed covariance. \(A\), \(X\), \(Y\), and \(D\) are conditional components computed from the same data, and the decomposition is exact as an algebraic identity. The result is that phase conditioning removes a substantial finite-range part of the covariance, and the residual remains negative at all tested scales.
+
+A compatible theoretical reading is the following. The measured covariance decomposition is compatible with a sieve-phase interpretation, but does not by itself identify a causal mechanism. The Montgomery–Soundararajan framework provides a conditional variance-consistency benchmark for the cumulative correlation statistic; applying that framework to a fixed number of consecutive gaps is an extrapolation beyond its stated asymptotic regime.

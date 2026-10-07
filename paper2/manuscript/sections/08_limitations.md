@@ -14,7 +14,7 @@ M \in \{6,\,30,\,210,\,2310,\,30030,\,510510,\,9699690\}.
 \]
 The monotone growth of `var_between` and the monotone decline in magnitude of \(\rho_{\text{resid}}\) across this ladder are observed facts about these seven points. No extrapolation to \(M\to\infty\) is supported. In particular, the data do not establish that \(\rho_{\text{resid}}(M)\to 0\), nor that it converges to any nonzero limit.
 
-A note on finite-sample bias. At \(M=9699690\) the number of phase classes is \(\varphi(M) = 1{,}658{,}880\), with an average of 509 gaps per class. The expected sampling noise in `var_between` under a null of no true phase structure is approximately \(\operatorname{Var} \cdot \varphi(M) / n \approx 0.86\) out of \(16.4\) at this modulus, i.e. about 5 percent. The observed monotone growth is larger than this noise floor, but the reader should interpret the largest modulus as a high-resolution diagnostic rather than as an independent validation.
+A note on finite-sample estimation. At \(M=9{,}699{,}690\) the number of phase classes is \(\varphi(M) = 1{,}658{,}880\), with an average of 509 gaps per class and a smallest class of 433. The phase classes form an exact partition, so the decomposition itself is not affected by empty classes. Finite class sizes nevertheless affect the stability of the estimated conditional means and hence of \(D\), especially at the largest modulus. We therefore interpret the largest-modulus result as a high-resolution diagnostic rather than as an independent validation. The observed decline in \(\rho_{\text{resid}}(M)\) is not asserted to be free of finite-class estimation error.
 
 ## 8.3 No causal claim
 

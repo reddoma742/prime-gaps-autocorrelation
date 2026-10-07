@@ -10,6 +10,8 @@ The observed dependence of the detrended gap on the opening-prime residue modulo
 
 A finite inclusion–exclusion calculation of this kind can provide a heuristic estimate of the consecutive-gap distribution. We do **not** use such a calculation to define our estimators or to claim an asymptotic prediction. It is mentioned here only to record that a natural theoretical counterpart of the empirical phase decomposition exists, and that it has not been used in the present paper.
 
+The cross term \(Y = \mathbb{E}[u_n \mu(r_{n+1})]\) is the component most directly connected to the consecutive-residue viewpoint of Lemke Oliver and Soundararajan, because the next phase class satisfies \(r_{n+1} \equiv r_n + g_n \pmod M\). This is a conceptual connection, not an identification of \(Y\) with their transition-bias statistic.
+
 ## 7.3 The measured offset \(d\)
 
 The quantity

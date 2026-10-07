@@ -35,6 +35,8 @@ Both decompositions arise from the same phase conditioning. The between-phase va
 
 The two quantities are not equivalent. A phase structure with large one-point dispersion need not produce a large lag-one autocovariance, and vice versa. The observed data show that both grow with \(M\), but at different rates and with different signs in the small-\(M\) regime.
 
+For comparison, the non-\(D\) covariance share \(S(M)=(A+X+Y)/\operatorname{Cov}=1-D/\operatorname{Cov}\) increases from approximately \(1.5\%\) at \(M=6\) to \(60.4\%\) at \(M=9{,}699{,}690\) (Table 3, Section 4.2). This should be read as an algebraic decomposition share, not as a causal fraction of dependence removed by conditioning. The \(3.74\%\) between-phase variance share and the \(60.4\%\) non-\(D\) covariance share describe different one-point and two-point statistics and are not directly comparable effect sizes.
+
 ## 6.4 What this section does not claim
 
 The variance split is an algebraic identity. It partitions the detrended variance into a between-phase and a within-phase term; it does not attribute a causal mechanism to either. The phase-conditional mean \(\mu(r)\) is a computed quantity, not a modelled one.

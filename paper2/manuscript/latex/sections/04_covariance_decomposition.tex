@@ -29,22 +29,34 @@ All four terms are computed from the same data; the identity is exact by constru
 
 The observed components, at $10^{10}$ and 6 decimal places:
 
+We also report the non-$D$ share of the lag-one covariance,
+\begin{equation}
+  S(M) = \frac{A(M)+X(M)+Y(M)}{\operatorname{Cov}(e_n,e_{n+1})}
+       = 1 - \frac{D(M)}{\operatorname{Cov}(e_n,e_{n+1})}.
+\end{equation}
+Because $\operatorname{Cov}$ and $D$ are both negative, $S(M)$ is
+positive and increases with $M$. It is an algebraic decomposition
+share, not a causal fraction of dependence removed by conditioning.
+
 \begin{table}[ht]
 \centering
-\caption{Covariance decomposition components.}
+\caption{Covariance decomposition components. The sum
+$A+X+Y+D$ equals $\operatorname{Cov}$ exactly for every $M$
+and is not repeated as a column. The last column reports
+$S(M) = (A+X+Y)/\operatorname{Cov}$, the non-$D$ share.}
 \label{tab:abcd}
 \small
 \begin{tabular}{rrrrrrrr}
 \toprule
-$M$  &  $A$  &  $X$  &  $Y$  &  $X+Y$  &  $D$  &  Cov  \\
+$M$  &  $A$  &  $X$  &  $Y$  &  $X+Y$  &  $D$  &  Cov  &  $S(M)$  \\
 \midrule
-6 & $-0.014798$ & $-0.011110$ & $-0.142602$ & $-0.153712$ & $-10.832660$ & $-11.001171$ & $-11.001171$ \\
-30 & $-0.086958$ & $-0.118493$ & $-1.170132$ & $-1.288625$ & $-9.625587$ & $-11.001171$ & $-11.001171$ \\
-210 & $+0.138938$ & $-0.055117$ & $-3.084120$ & $-3.139237$ & $-8.000871$ & $-11.001171$ & $-11.001171$ \\
-2310 & $+0.670972$ & $-0.035007$ & $-4.876237$ & $-4.911244$ & $-6.760899$ & $-11.001171$ & $-11.001171$ \\
-30030 & $+1.369692$ & $-0.029422$ & $-6.575378$ & $-6.604800$ & $-5.766063$ & $-11.001171$ & $-11.001171$ \\
-510510 & $+2.127980$ & $-0.028428$ & $-8.085351$ & $-8.113779$ & $-5.015372$ & $-11.001171$ & $-11.001171$ \\
-9699690 & $+2.898121$ & $-0.031791$ & $-9.515775$ & $-9.547566$ & $-4.351726$ & $-11.001171$ & $-11.001171$ \\
+6 & $-0.014798$ & $-0.011110$ & $-0.142602$ & $-0.153712$ & $-10.832660$ & $-11.001171$ & $1.5\%$ \\
+30 & $-0.086958$ & $-0.118493$ & $-1.170132$ & $-1.288625$ & $-9.625587$ & $-11.001171$ & $12.5\%$ \\
+210 & $+0.138938$ & $-0.055117$ & $-3.084120$ & $-3.139237$ & $-8.000871$ & $-11.001171$ & $27.3\%$ \\
+2310 & $+0.670972$ & $-0.035007$ & $-4.876237$ & $-4.911244$ & $-6.760899$ & $-11.001171$ & $38.5\%$ \\
+30030 & $+1.369692$ & $-0.029422$ & $-6.575378$ & $-6.604800$ & $-5.766063$ & $-11.001171$ & $47.6\%$ \\
+510510 & $+2.127980$ & $-0.028428$ & $-8.085351$ & $-8.113779$ & $-5.015372$ & $-11.001171$ & $54.4\%$ \\
+9699690 & $+2.898121$ & $-0.031791$ & $-9.515775$ & $-9.547566$ & $-4.351726$ & $-11.001171$ & $60.4\%$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -113,7 +125,7 @@ $M$ & $\rho_{\text{resid}}$ & 95\% CI & width \\
 \end{tabular}
 \end{table}
 
-Every interval excludes zero. Every point estimate lies inside its interval. The intervals are narrow, reflecting the size of the window.
+All seven marginal 95\% bootstrap intervals exclude zero. The point estimates also decrease monotonically across the tested modulus ladder. We do not claim a familywise test of monotonicity.
 
 \subsection{What this section does not claim}
 
@@ -121,4 +133,4 @@ $A$, $X$, $Y$, $D$ are conditional components computed from the same data. The d
 
 No claim is made that $\rho_{\text{resid}}(M)\to 0$ as $M\to\infty$. The seven moduli are a finite ladder; extrapolation beyond $M=9699690$ is not supported by the present data.
 
-A note on the mechanical origin of $Y$. The next phase class satisfies $r_{n+1} = r_n + g_n \bmod M$, so the gap $g_n$ determines $r_{n+1}$ exactly. Part of the transfer of covariance from $D$ to $Y$ as $M$ grows is therefore a re-distribution within the accounting identity, not a physical removal of dependence. The total $A+X+Y+D$ is fixed at $-11.001171$ for every $M$; what changes is its distribution across the four components.
+A note on the mechanical origin of $Y$. The next phase class satisfies $r_{n+1} = r_n + g_n \bmod M$, so the gap $g_n$ determines $r_{n+1}$ exactly. Part of the transfer of covariance from $D$ to $Y$ as $M$ grows is therefore a re-distribution within the accounting identity, not a physical removal of dependence. The total $A+X+Y+D$ is fixed at $-11.001171$ for every $M$; what changes is its distribution across the four components. This identity is also the reason that $Y$ is conceptually related to the consecutive-residue transition viewpoint discussed in Section~\ref{sec:theory}.

@@ -16,7 +16,7 @@ We work with the locally detrended gap
 \[
 e_n = g_n - (\alpha + \beta \log p_n),
 \]
-where \(\alpha\) and \(\beta\) are the ordinary-least-squares coefficients of \(g_n\) on \(\log p_n\) over the whole window. For the \(10^{10}\) window we obtain
+where \(\alpha\) and \(\beta\) are the ordinary-least-squares coefficients of \(g_n\) on \(\log p_n\). On a single window, this OLS detrending coincides with the "windowed local detrending" of Section 2.2. For the \(10^{10}\) window we obtain
 \[
 \alpha = 0.002492,\qquad \beta = 0.999903.
 \]
@@ -37,7 +37,7 @@ By the law of total variance,
 \]
 The first term is the between-phase variance; the second is the within-phase variance. In the CSV these are `var_between` and `var_within`.
 
-For the \(10^{10}\) window, \(\operatorname{Var}(e) = 438.670412\) and the split is:
+For the \(10^{10}\) window, \(\operatorname{Var}(e) = 438.670412\) and the split is reported in Table 2 (Section 3.3):
 
 **Table 2. Variance split by modulus.**
 

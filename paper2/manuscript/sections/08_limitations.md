@@ -34,7 +34,7 @@ Conditioning is performed on \(r_n = p_n \bmod M\), the residue of the opening p
 
 ## 8.6 Bootstrap scope
 
-The 95% intervals for \(\rho_{\text{resid}}\) are obtained by a moving-block bootstrap with 40 contiguous blocks and 300 replicates. The block bootstrap is appropriate under the assumption that the residual sequence is approximately stationary within the window and that the block length is large compared to the dependence range. The intervals are conditional on these choices. They are not i.i.d. bootstrap intervals, and they do not constitute a test of stationarity.
+The 95% intervals for \(\rho_{\text{resid}}\) are obtained by a moving-block bootstrap with 40 contiguous blocks and 1000 replicates. The block bootstrap is appropriate under the assumption that the residual sequence is approximately stationary within the window and that the block length is large compared to the dependence range. The intervals are conditional on these choices. They are not i.i.d. bootstrap intervals, and they do not constitute a test of stationarity.
 
 ## 8.7 No relation to HL/MS as a theorem
 

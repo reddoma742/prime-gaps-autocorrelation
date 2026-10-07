@@ -16,7 +16,7 @@ The data set analyzed here contains
 \[
 n = 844{,}953{,}415
 \]
-gaps in the interval \([10^{10},3\times 10^{10})\). For the raw gap sequence we find
+gaps in the interval \([10^{10},3\times 10^{10})\). For the detrended gap sequence we find
 \[
 \operatorname{Var}(e)=438.670,\qquad \operatorname{sd}(e)=20.944,
 \]
@@ -39,7 +39,7 @@ we decompose the lag-one covariance into four terms
 \[
 A+X+Y+D=\operatorname{Cov},
 \]
-where \(A\) is the phase component, \(X\) and \(Y\) are cross terms, and \(D\) is the residual term. The decomposition closes exactly to within \(10^{-6}\) for every \(M\) in the table. The residual correlation \(\rho_{\text{resid}}\) remains negative for all seven moduli, ranging from \(-0.024703\) at \(M=6\) to \(-0.010306\) at \(M=9699690\). Thus phase conditioning removes a substantial finite-range component, but the residual remains negative.
+where \(A\) is the phase component, \(X\) and \(Y\) are cross terms, and \(D\) is the residual term. The decomposition closes exactly to within \(10^{-6}\) for every \(M\) in the table. The residual correlation \(\rho_{\text{resid}}\) remains negative for all seven moduli, ranging from \(-0.024703\) at \(M=6\) to \(-0.010306\) at \(M=9699690\). Thus phase conditioning reduces the residual term D from −10.83 at M=6 to −4.35 at M=9699690 and redistributes the covariance among A, X, Y, D, while the total remains fixed at −11.001171. The residual correlation remains negative at all tested scales.
 
 This paper makes five contributions. First, it reproduces the frozen \(10^{10}\) predictions and confirms the stability of the negative lag-one dependence at the larger scale. Second, it gives an exact sieve-phase decomposition of the lag-one covariance. Third, it reports the decomposition across seven primorial scales. Fourth, it studies the variance structure of the gap sequence through between-phase and within-phase components. Fifth, it states the limitations of the present analysis and distinguishes the observable studied here from related recurrence-statistics approaches.
 

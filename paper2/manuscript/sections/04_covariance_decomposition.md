@@ -55,7 +55,7 @@ Define the residual lag-one correlation
 \[
 \rho_{\text{resid}}(M) = \frac{D(M)}{\text{var\_within}(M)}.
 \]
-The observed values are:
+The observed values are reported in Table 3 (Section 4.4):
 
 | \(M\) | \(\rho_{\text{resid}}\) |
 |---:|---:|
@@ -67,29 +67,29 @@ The observed values are:
 | 510510 | −0.011775 |
 | 9699690 | −0.010306 |
 
-The residual correlation remains negative at all seven tested scales. Its magnitude declines from \(0.0247\) at \(M=6\) to \(0.0103\) at \(M=9699690\) — a reduction of roughly \(58\%\). Phase conditioning therefore removes a substantial finite-range component of the lag-one covariance, but does not eliminate the residual dependence within the window.
+The residual correlation remains negative at all seven tested scales. Its magnitude declines from \(0.0247\) at \(M=6\) to \(0.0103\) at \(M=9699690\) — a reduction of roughly \(58\%\). Phase conditioning therefore reduces the residual term D from −10.83 at M=6 to −4.35 at M=9699690, while the total covariance A+X+Y+D remains fixed at −11.001171. The redistribution among the four components does not eliminate the residual dependence within the window.
+
+The CSV also contains a small-sample-corrected variant \(\rho_{\text{resid}}^{\text{corr}}(M)\), which differs from the raw value only at the largest modulus: \(-0.010326\) versus \(-0.010306\) at \(M=9699690\). The correction is negligible at all tested scales and the paper reports the raw values.
 
 ## 4.5 Block bootstrap
 
-Confidence intervals for \(\rho_{\text{resid}}\) are obtained by a moving-block bootstrap with 40 contiguous blocks and 300 replicates, with an independent seed for each \(M\). The 95% intervals are:
+Confidence intervals for \(\rho_{\text{resid}}\) are obtained by a moving-block bootstrap with 40 contiguous blocks and 1000 replicates, with an independent seed for each \(M\). The 95% intervals are reported in Table 4 (Section 4.5):
 
 | \(M\) | \(\rho_{\text{resid}}\) | 95% CI | width |
 |---:|---:|---:|---:|
-| 6 | −0.024703 | [−0.024881, −0.024552] | 0.000329 |
-| 30 | −0.022007 | [−0.022137, −0.021878] | 0.000259 |
-| 210 | −0.018402 | [−0.018518, −0.018291] | 0.000227 |
-| 2310 | −0.015653 | [−0.015744, −0.015549] | 0.000195 |
-| 30030 | −0.013445 | [−0.013538, −0.013350] | 0.000188 |
-| 510510 | −0.011775 | [−0.011863, −0.011689] | 0.000174 |
-| 9699690 | −0.010306 | [−0.010387, −0.010230] | 0.000157 |
+| 6 | −0.024703 | [−0.024868, −0.024544] | 0.000324 |
+| 30 | −0.022007 | [−0.022138, −0.021864] | 0.000274 |
+| 210 | −0.018402 | [−0.018511, −0.018283] | 0.000228 |
+| 2310 | −0.015653 | [−0.015750, −0.015551] | 0.000199 |
+| 30030 | −0.013445 | [−0.013535, −0.013352] | 0.000183 |
+| 510510 | −0.011775 | [−0.011856, −0.011691] | 0.000165 |
+| 9699690 | −0.010306 | [−0.010379, −0.010226] | 0.000153 |
 
 Every interval excludes zero. Every point estimate lies inside its interval. The intervals are narrow, reflecting the size of the window.
 
-The bootstrap uses 300 replicates. A larger number of replicates (\(\ge 1000\)) would tighten the reported percentiles; the present intervals are used as an order-of-magnitude consistency check.
-
 ## 4.6 What this section does not claim
 
-\(A\), \(X\), \(Y\), \(D\) are conditional components computed from the same data. The decomposition does not establish a causal role for the phase component. It establishes that, under the present conditioning, the residual term \(D\) remains negative in magnitude at all seven tested moduli, and that the total covariance is redistributed across \(A\), \(X\), \(Y\), \(D\) as \(M\) grows: \(A\) becomes increasingly positive, \(Y\) becomes increasingly negative, and \(D\) decreases in magnitude. The sum \(A+X+Y+D\) is unchanged.
+\(A\), \(X\), \(Y\), \(D\) are conditional components computed from the same data. The decomposition does not establish a causal role for the phase component. It establishes that, under the present conditioning, the residual term \(D\) remains negative at all seven tested moduli, and that the total covariance is redistributed across \(A\), \(X\), \(Y\), \(D\) as \(M\) grows: \(A\) becomes increasingly positive, \(Y\) becomes increasingly negative, and \(D\) decreases in magnitude. The sum \(A+X+Y+D\) is unchanged.
 
 No claim is made that \(\rho_{\text{resid}}(M)\to 0\) as \(M\to\infty\). The seven moduli are a finite ladder; extrapolation beyond \(M=9699690\) is not supported by the present data.
 

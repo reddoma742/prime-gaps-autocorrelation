@@ -18,7 +18,7 @@ The center of the interval in log scale is
 \[
 \log p_{\text{center}} = 23.575157.
 \]
-The raw gap variance is
+The detrended gap variance is
 \[
 \operatorname{Var}(e) = 438.670412,
 \]
@@ -26,11 +26,11 @@ with standard deviation
 \[
 \operatorname{sd}(e) = 20.944.
 \]
-The lag-one covariance is
+The lag-one covariance of the detrended gap is
 \[
-\operatorname{Cov} = -11.001171,
+\operatorname{Cov}(e_n,e_{n+1}) = -11.001171,
 \]
-and the raw lag-one correlation is
+and the lag-one correlation is
 \[
 \rho_1 = -0.025078.
 \]
@@ -40,7 +40,20 @@ These values reproduce the frozen predictions made before the $10^{10}$ run.
 
 We follow the windowed local detrending procedure frozen in the analysis protocol and used in Berramdane (2026a). The detrending removes the local scale trend within each window so that the remaining signal reflects serial dependence rather than slow variation in gap size. No parameter of the detrending is changed in the present study. The residual gaps are the input to the covariance and correlation analyses reported below.
 
-The variance and covariance values reported below are those of the detrended residual $e_n$, not of the raw gap $g_n$. The relation is $\operatorname{Var}(e) = \operatorname{Var}(g) - \beta^2 \operatorname{Var}(\log p)$, with $\beta \approx 1$ in the present window.
+The variance and covariance values reported below are those of the detrended residual $e_n$, not of the raw gap $g_n$. The relation is
+\[
+\operatorname{Var}(e) = \operatorname{Var}(g) - \beta^2 \operatorname{Var}(\log p).
+\]
+For the $10^{10}$ window we obtain
+\[
+\operatorname{Var}(g) = 438.765647,\quad
+\operatorname{Var}(\log p) = 0.095254,
+\]
+\[
+\beta = 0.999903,\quad
+\beta^2 \operatorname{Var}(\log p) = 0.095235,
+\]
+so $\operatorname{Var}(g) - \beta^2 \operatorname{Var}(\log p) = 438.670412$, closing with the measured $\operatorname{Var}(e) = 438.670412$ to within $4 \times 10^{-13}$.
 
 \subsection{Phase conditioning}
 

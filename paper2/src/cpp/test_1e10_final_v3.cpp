@@ -162,7 +162,7 @@ int main() {
     // ---- PASS 1 ----
     cerr << "PASS 1: OLS + class sums\n";
     uint64_t n1 = 0;
-    long double Sx=0, Sy=0, Sxx=0, Sxy=0;
+    long double Sx=0, Sy=0, Sxx=0, Sxy=0, Syy=0;
     uint64_t first_p = 0, last_open = 0;
     uint32_t min_gap = UINT32_MAX, max_gap = 0;
 
@@ -185,7 +185,7 @@ int main() {
         double lp = (double)log((double)p);
         double gd = (double)g;
         n1++;
-        Sx += lp; Sy += gd; Sxx += lp*lp; Sxy += lp*gd;
+        Sx += lp; Sy += gd; Sxx += lp*lp; Sxy += lp*gd; Syy += gd*gd;
 
         for (size_t k = 0; k < nM; ++k) {
             uint32_t r = (uint32_t)(p % Ms[k]);
@@ -222,6 +222,20 @@ int main() {
     for (auto& v : sum_g) v.clear();
     for (auto& v : sum_lp) v.clear();
 
+    // ---- OLS decomposition consistency check ----
+    long double mean_g   = Sy / dn;
+    long double mean_lp  = Sx / dn;
+    long double var_g    = (double)(Syy/dn - mean_g*mean_g);
+    long double var_lp   = (double)(Sxx/dn - mean_lp*mean_lp);
+
+    double beta_check    = (double)((dn*Sxy - Sx*Sy) / (dn*Sxx - Sx*Sx));
+    double var_e_pred    = (double)(var_g - beta_check*beta_check*var_lp);
+
+    cerr << "  Var(g)        = " << (double)var_g << "\n";
+    cerr << "  Var(log p)    = " << (double)var_lp << "\n";
+    cerr << "  beta          = " << beta_check << "\n";
+    cerr << "  Var(g) - b^2*Var(log p) = " << var_e_pred << "\n";
+
     // ---- PASS 2 ----
     cerr << "PASS 2: Var, Cov, ABCD, rho_res\n";
 
@@ -241,7 +255,7 @@ int main() {
     // ---- Block-level accumulators for the bootstrap -----------------------
     // 40 blocks x 7 M x 5 doubles ~= 11 KB. No residuals are stored.
     const int    N_BLOCKS  = 40;
-    const int    N_BOOT    = 300;
+    const int    N_BOOT    = 1000;
     const uint64_t SEED_BASE = 20261006ULL;   // independent seed per M
     const size_t block_size = (size_t)n1 / N_BLOCKS;   // n1 == n2 (asserted below)
     if (block_size == 0) throw runtime_error("block_size == 0");
@@ -303,6 +317,8 @@ int main() {
 
     double mean_e = (double)(sum_e / dn);
     double var_e  = (double)(sum_e2 / dn) - mean_e*mean_e;
+    cerr << "  Var(e) measured         = " << var_e << "\n";
+    cerr << "  closure diff (should be < 1e-4) = " << var_e - var_e_pred << "\n";
     double cov_1  = (double)(sum_ee / (long double)(n2 - 1)) - mean_e*mean_e;
     double sd_g   = sqrt(var_e);
     double logp_center = 0.5 * (log((double)LO) + log((double)HI));
@@ -366,6 +382,9 @@ int main() {
         ss << "  log p center      = " << logp_center << "\n";
         ss << "  alpha, beta       = " << alpha << ", " << beta << "\n";
         ss << "  Var(g)            = " << var_e << "   (pred 438-445)\n";
+        ss << "  Var(g) raw        = " << var_g << "\n";
+        ss << "  Var(log p)        = " << var_lp << "\n";
+        ss << "  beta^2 Var(log p) = " << beta_check*beta_check*var_lp << "\n";
         ss << "  sd(g)             = " << sd_g << "   (pred 20.9-21.1)\n";
         ss << "  d = L - sd(g)     = " << d_meas << "   (pred 2.5-2.7)\n";
         ss << "  Cov(g_i,g_i+1)    = " << cov_1 << "   (pred -11.0 to -11.8)\n";
@@ -423,7 +442,8 @@ int main() {
     csv << "window,M,n_gaps,logp_center,n_c,min_class,var_g,"
         << "cov_total,A,X,Y,D,ABCD_minus_cov,ABCD_over_cov,"
         << "rho_resid_raw,rho_resid_corrected,"
-        << "var_between,var_within,boot_lo,boot_med,boot_hi\n";
+        << "var_between,var_within,boot_lo,boot_med,boot_hi,"
+        << "var_g_raw,var_logp\n";
 
     for (size_t k = 0; k < nM; ++k) {
         double A = (double)(acc[k].A / acc[k].cnt_ABCD);
@@ -464,7 +484,7 @@ int main() {
             << var_wth[k] << ","
             << boot_lo[k] << ","
             << boot_med[k] << ","
-            << boot_hi[k] << "\n";
+            << boot_hi[k] << "," << var_g << "," << var_lp << "\n";
     }
     csv.close();
 

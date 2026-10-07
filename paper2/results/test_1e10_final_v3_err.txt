@@ -1,0 +1,24 @@
+
+=== PART 0: Validation at 10^6 and 10^7 ===
+PASS 1: OLS + class sums
+  M = 6: non-empty = 2, min class = 422475051
+  M = 30: non-empty = 8, min class = 105617814
+  M = 210: non-empty = 48, min class = 17601182
+  M = 2310: non-empty = 480, min class = 1758565
+  M = 30030: non-empty = 5760, min class = 146003
+  M = 510510: non-empty = 92160, min class = 8936
+  M = 9699690: non-empty = 1658880, min class = 433
+  Var(g)        = 438.766
+  Var(log p)    = 0.0952539
+  beta          = 0.999903
+  Var(g) - b^2*Var(log p) = 438.67
+PASS 2: Var, Cov, ABCD, rho_res
+  Var(e) measured         = 438.67
+  closure diff (should be < 1e-4) = -3.41061e-13
+  M = 6: bootstrap CI95 = [-0.0248675, -0.0247042, -0.0245435]
+  M = 30: bootstrap CI95 = [-0.0221375, -0.0220126, -0.0218643]
+  M = 210: bootstrap CI95 = [-0.0185113, -0.0184029, -0.0182826]
+  M = 2310: bootstrap CI95 = [-0.0157504, -0.0156562, -0.0155506]
+  M = 30030: bootstrap CI95 = [-0.0135351, -0.0134412, -0.013352]
+  M = 510510: bootstrap CI95 = [-0.0118557, -0.0117744, -0.0116909]
+  M = 9699690: bootstrap CI95 = [-0.010379, -0.0103063, -0.0102263]

@@ -12,18 +12,18 @@
 
 6. Lemke Oliver, R. J., Soundararajan, K. (LOS). *Unexpected biases in the distribution of consecutive primes*. PNAS, 113(31):E4446–E4454, 2016. arXiv:1603.03720.
 
-7. Montgomery, H. L., Soundararajan, K. (MS). *Primes in short intervals*. arXiv:math/0409258.
+7. Montgomery, H. L., Soundararajan, K. (MS). *Primes in short intervals*. Communications in Mathematical Physics, 252(1-3):589-617, 2004. arXiv:math/0409258.
 
-8. Ash, A., Beltis, L., Gross, R., Sinnott, W. (2011). Frequencies of successive gaps between primes. *Journal of Combinatorics and Number Theory*, 3(2), 1–14.
+8. Ash, A., Beltis, L., Gross, R., Sinnott, W. (2011). Frequencies of successive pairs of prime residues. *Experimental Mathematics*, 20(4):400-411.
 
-9. Banks, W., Ford, K., Tao, T. (2019). *Large prime gaps and probabilistic models*. arXiv:1908.08613.
+9. Banks, W., Ford, K., Tao, T. (2019). *Large prime gaps and probabilistic models*. Inventiones Mathematicae, 233:1471-1518, 2023. arXiv:1908.08613.
 
 10. Murray, D. J. *Prime-Residue Projection Tomography of Consecutive-Prime Biases: Primorial Recovery and Gap-Word Order Asymmetry*. SSRN 6947578, 2026.
 
-11. Murray, D. J. *[Title of second SSRN paper]*. SSRN 7426882. Title to be completed before submission.
+11. Murray, D. J. *Recursive Predictive Closure in the Prime Sieve: Resolution covariance, finite probability consistency, and gap-word prediction*. SSRN 7426882, 2026.
 
 ## Notes on references
 
 - References 5–7 and 9 are listed here with the arXiv identifiers used inline in Section 1.
-- References 10–11 (Murray) are cited only for the purpose of distinguishing observables in Section 9. Reference [10] is complete. Reference [11] is a placeholder: its title is to be filled in before submission.
+- References 10–11 (Murray) are cited only for the purpose of distinguishing observables in Section 9.
 - Reference 1 (Berramdane 2026a) is the companion paper of the present work.
